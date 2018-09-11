@@ -221,4 +221,10 @@ p{
     font-family: American Typewriter;
     padding: 20px 20px 0px 20px;
   }
+
+  /*Section title common styling*/
+  div div p:nth-child(1)
+  {
+    width: 100%;
+  }
 }
