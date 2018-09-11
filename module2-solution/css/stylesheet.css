@@ -42,10 +42,15 @@ div div p:nth-child(1)
 	float: right;
 	text-align: center;
 	width: 120px;
-  height: 30px;
+  display: inline-block;
 	border: 1px solid black;
 	font-size: 1.25rem;
   padding: 0px;
+}
+
+div div p:nth-child(2)
+{
+  display: none;
 }
 
 /*Fake text paragraph styling*/
@@ -225,6 +230,16 @@ p{
   /*Section title common styling*/
   div div p:nth-child(1)
   {
+    display: none;
+  }
+
+  div div p:nth-child(2)
+  {
+    display: inline-block;
+    text-align: center;
     width: 100%;
+    border: 1px solid black;
+    font-size: 1.25rem;
+    padding: 0px;
   }
 }
