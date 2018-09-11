@@ -7,11 +7,15 @@
 }
 
 /*title styling*/
-h1 {
+h1.menu {
   margin-bottom: 15px;
   text-align: center;
   padding: 20px;
   font-size: 1.75rem;
+}
+
+h1.categories{
+  display:none;
 }
 
 /*Section title for Chicken*/
@@ -205,5 +209,16 @@ p{
   .col-sm-12 {
     width: 100%;
     margin-top: 2%;
+  }
+
+  h1.menu {
+    display: none;
+  }
+
+  h1.categories{
+    display: block;
+    font-size: 1.50rem;
+    font-family: American Typewriter;
+    padding: 20px 20px 0px 20px;
   }
 }
