@@ -10,13 +10,8 @@
 /*title styling*/
 h1.menu {
   margin-bottom: 15px;
-  text-align: center;
   padding: 20px;
   font-size: 1.75rem;
-}
-
-h1.categories{
-  display:none;
 }
 
 /*Section title common styling*/
@@ -31,11 +26,6 @@ div div p:nth-child(1)
 	border: 1px solid black;
 	font-size: 1.25rem;
   padding: 0px;
-}
-
-div div p:nth-child(2)
-{
-  display: none;
 }
 
 /*Fake text paragraph styling*/
@@ -67,26 +57,28 @@ body{
   color: rgb(17, 17, 1)
 }
 
+/*HEADER/NAVBAR STYLING*/
 #header-nav{
   background-color: #4056A1;
   border-radius: 0;
   border: 0;
 }
-
 .navbar-brand{
   font-size: 2em;
 }
-
 a { 
   color: #C5CBE3;
   text-shadow: 1px 1px 1px rgb(37, 32, 2);
 }
-
 a:hover, a:focus{
   color:  #C5CBE3;
   text-decoration: none;
 }
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar{
+  border: 1px solid #C5CBE3;
+}
 
+/*NAVBAR LIST STYLING*/
 #nav-list{
   text-align: center;
 }
@@ -101,3 +93,4 @@ a:hover, a:focus{
   color:rgb(123, 219, 243);
   text-shadow: 1px 1px 1px rgb(37, 32, 2);
 }
+
