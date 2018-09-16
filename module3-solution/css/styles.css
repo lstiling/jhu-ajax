@@ -89,14 +89,15 @@ body{
 }
 
 .navbar-brand{
-  font-size: 30px;
+  font-size: 2em;
 }
 
 a { 
-  color: white;
+  color: rgb(245, 231, 156);
+  text-shadow: 1px 1px 1px rgb(58, 50, 2);
 }
 
-a:hover{
+a:hover, a:focus{
   color: white;
   text-decoration: none;
 }
