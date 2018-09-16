@@ -1,63 +1,19 @@
 
-/********** Base styles **********/
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-
-}
-
-/*title styling*/
-h1.menu {
-  margin-bottom: 15px;
-  padding: 20px;
-  font-size: 1.75rem;
-}
-
-/*Section title common styling*/
-div div p:nth-child(1)
-{
-  background-color: #4056A1;
-  color: #C5CBE3;
-	float: right;
-	text-align: center;
-	width: 120px;
-  display: inline-block;
-	border: 1px solid black;
-	font-size: 1.25rem;
-  padding: 0px;
-}
-
-/*Fake text paragraph styling*/
-p{
-	clear: right;
-  padding: 10px;
-}
-
-/*set background for entire div*/
-.col {
-  background-color: #C5CBE3;
-  height: 300px;
-  overflow: hidden;
-}
-
-/*hover style for hovering over section*/
-.col:hover { 
-  overflow: scroll;
-  overflow-y: scroll;
-  cursor: ns-resize;
-}
-
-
-
-
+/*Main page styling*/
 body{
   background-color: rgb(123, 219, 243);
   font-family: Chalkboard;
   color: rgb(17, 17, 1)
 }
 
-/*HEADER/NAVBAR STYLING*/
+/*Main Header Styling*/
+h1.menu {
+  margin-bottom: 15px;
+  padding: 20px;
+  font-size: 1.75rem;
+}
+
+/*Navbar Styling*/
 #header-nav{
   background-color: #4056A1;
   border-radius: 0;
@@ -78,19 +34,43 @@ a:hover, a:focus{
   border: 1px solid #C5CBE3;
 }
 
-/*NAVBAR LIST STYLING*/
+/*Navbar Menu List Styling*/
 #nav-list{
   text-align: center;
 }
-
 #nav-list > li > a{
   color: #C5CBE3;
   text-shadow: 1px 1px 1px rgb(37, 32, 2);
   font-size: 1.5em;
 }
-
 #nav-list > li > a:hover{
   color:rgb(123, 219, 243);
   text-shadow: 1px 1px 1px rgb(37, 32, 2);
 }
 
+/*Home Tiles Styling*/
+#home-tiles{
+  background-color: #C5CBE3;
+  height: 300px;
+  overflow: hidden;
+}
+#home-tiles:hover { 
+  overflow: scroll;
+  overflow-y: scroll;
+  cursor: ns-resize;
+}
+#home-tiles #section{
+  background-color: #4056A1;
+  color: #C5CBE3;
+	float: right;
+	text-align: center;
+	width: 120px;
+  display: inline-block;
+	border: 1px solid black;
+	font-size: 1.25rem;
+  padding: 0px;
+}
+#home-tiles p{
+	clear: right;
+  padding: 10px;
+}
