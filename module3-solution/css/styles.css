@@ -56,18 +56,18 @@ a:hover, a:focus{
   margin-bottom: 15px;
   position:relative;
   overflow: hidden;
+  box-shadow: 1px 1px 1px rgb(71, 71, 71);
 }
 #home-tiles:hover { 
   overflow: scroll;
   overflow-y: scroll;
   cursor: ns-resize;
 }
-#home-tiles #section{
+#home-tiles h3{
   background-color: #4056A1;
   color: #C5CBE3;
-	border: 1px solid black;
-	font-size: 1.25rem;
-  padding: 0px;
+  border: 1px solid black;
+  margin: 0px;
 }
 #home-tiles p{
   padding: 5px;
