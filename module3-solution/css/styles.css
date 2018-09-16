@@ -52,6 +52,9 @@ a:hover, a:focus{
 #home-tiles{
   background-color: #C5CBE3;
   height: 300px;
+  width: 100%;
+  margin-bottom: 15px;
+  position:relative;
   overflow: hidden;
 }
 #home-tiles:hover { 
