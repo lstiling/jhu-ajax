@@ -62,15 +62,10 @@ a:hover, a:focus{
 #home-tiles #section{
   background-color: #4056A1;
   color: #C5CBE3;
-	float: right;
-	text-align: center;
-	width: 120px;
-  display: inline-block;
 	border: 1px solid black;
 	font-size: 1.25rem;
   padding: 0px;
 }
 #home-tiles p{
-	clear: right;
-  padding: 10px;
+  padding: 5px;
 }
