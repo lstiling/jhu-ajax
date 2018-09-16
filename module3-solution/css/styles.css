@@ -51,14 +51,14 @@ a:hover, a:focus{
 /*Home Tiles Styling*/
 #home-tiles{
   background-color: #C5CBE3;
-  height: 300px;
+  height: 600px;
   width: 100%;
   margin-bottom: 15px;
   position:relative;
   overflow: hidden;
   box-shadow: 1px 1px 1px rgb(71, 71, 71);
 }
-#home-tiles:hover { 
+#home-tiles{
   overflow: scroll;
   overflow-y: scroll;
   cursor: ns-resize;
@@ -71,4 +71,9 @@ a:hover, a:focus{
 }
 #home-tiles p{
   padding: 5px;
+}
+#home-tiles a{
+  padding: 5px;
+  color:rgb(17, 17, 1);
+  margin: 0px;
 }
