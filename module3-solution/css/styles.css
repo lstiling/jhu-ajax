@@ -19,27 +19,11 @@ h1.categories{
   display:none;
 }
 
-/*Section title for Chicken*/
-#chicken{
-	color: black;
-	background-color: rgba(241, 142, 158, 0.87);
-}
-
-/*Section title for Beef*/
-#beef{
-	color: white;
-	background-color: rgb(175, 83, 83);
-}
-
-/*Section title for Sushi*/
-#sushi{
-	color: black;
-  background-color: rgb(245, 231, 156);
-}
-
 /*Section title common styling*/
 div div p:nth-child(1)
 {
+  background-color: #4056A1;
+  color: #C5CBE3;
 	float: right;
 	text-align: center;
 	width: 120px;
@@ -62,7 +46,7 @@ p{
 
 /*set background for entire div*/
 .col {
-  background-color: white;
+  background-color: #C5CBE3;
   height: 300px;
   overflow: hidden;
 }
@@ -78,12 +62,13 @@ p{
 
 
 body{
-  background-color: gray;
+  background-color: rgb(123, 219, 243);
   font-family: Chalkboard;
+  color: rgb(17, 17, 1)
 }
 
 #header-nav{
-  background-color: rgb(175, 83, 83);
+  background-color: #4056A1;
   border-radius: 0;
   border: 0;
 }
@@ -93,12 +78,26 @@ body{
 }
 
 a { 
-  color: rgb(245, 231, 156);
+  color: #C5CBE3;
   text-shadow: 1px 1px 1px rgb(37, 32, 2);
 }
 
 a:hover, a:focus{
-  color: white;
+  color:  #C5CBE3;
   text-decoration: none;
 }
 
+#nav-list{
+  text-align: center;
+}
+
+#nav-list > li > a{
+  color: #C5CBE3;
+  text-shadow: 1px 1px 1px rgb(37, 32, 2);
+  font-size: 1.5em;
+}
+
+#nav-list > li > a:hover{
+  color:rgb(123, 219, 243);
+  text-shadow: 1px 1px 1px rgb(37, 32, 2);
+}
