@@ -72,8 +72,15 @@ a:hover, a:focus{
 #home-tiles p{
   padding: 5px;
 }
-#home-tiles a{
-  padding: 5px;
-  color:rgb(17, 17, 1);
-  margin: 0px;
+
+/*Footer Styling*/
+.panel-footer{
+  background-color: #4056A1;
+  border: 1px solid black;
+  position: relative;
+  right:0;
+  bottom:0;
+}
+.panel-footer a{
+  color: #C5CBE3;
 }
