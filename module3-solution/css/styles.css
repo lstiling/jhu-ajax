@@ -77,9 +77,6 @@ a:hover, a:focus{
 .panel-footer{
   background-color: #4056A1;
   border: 1px solid black;
-  position: relative;
-  right:0;
-  bottom:0;
 }
 .panel-footer a{
   color: #C5CBE3;
