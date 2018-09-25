@@ -65,4 +65,16 @@ for (var i = 0; i < names.length; i++) {
   }
 }
 
+// additional requirement using map function
+var greeting = function greeting(name){
+  var firstLetter = name.charAt(0).toLowerCase();
+  if (firstLetter === 'j') {
+    return byeSpeaker.speakSimple(name);
+  } else {
+    return helloSpeaker.speakSimple(name);
+  }
+};
+const map1 = names.map(greeting);
+console.log(map1);
+
 })();
