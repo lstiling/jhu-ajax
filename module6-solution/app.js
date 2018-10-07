@@ -11,11 +11,24 @@ function LunchCheckController($scope, $filter)
   $scope.lunchMessage = "";
 
   $scope.checkLunch = function(){
-    $scope.lunchMessage = "testing";
+    var lunchItems = $scope.lunchText.split(',');
+    $scope.lunchMessage = getLunchMessage(lunchItems);
   };
 }
 
-
-
-
+function getLunchMessage(lunchItems)
+{
+  if(lunchItems == "")
+  {
+    return "Please enter data first.";
+  }
+  else if(lunchItems.length <= 3)
+  {
+    return "Enjoy!";
+  }
+  else if(lunchItems.length > 3)
+  {
+    return "Too Much!";
+  }
+}
 })();
