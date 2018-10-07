@@ -9,10 +9,12 @@ function LunchCheckController($scope, $filter)
 {
   $scope.lunchText = "";
   $scope.lunchMessage = "";
+  $scope.lunchMessageColor = "";
 
   $scope.checkLunch = function(){
     var lunchItems = $scope.lunchText.split(',');
     $scope.lunchMessage = getLunchMessage(lunchItems);
+    $scope.lunchMessageColor = getLunchMessageColor(lunchItems);
   };
 }
 
@@ -30,6 +32,19 @@ function getLunchMessage(lunchItems)
   else if(pureLunchItems.length > 3)
   {
     return "Too Much!";
+  }
+}
+
+function getLunchMessageColor(lunchItems)
+{
+  var pureLunchItems = filterLunchItems(lunchItems);
+  if(pureLunchItems == "")
+  {
+    return {"color":"red"};
+  }
+  else
+  {
+    return {"color":"green"};
   }
 }
 
