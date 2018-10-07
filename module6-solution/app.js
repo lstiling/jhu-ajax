@@ -10,11 +10,13 @@ function LunchCheckController($scope, $filter)
   $scope.lunchText = "";
   $scope.lunchMessage = "";
   $scope.lunchMessageColor = "";
+  $scope.lunchBorderColor = "";
 
   $scope.checkLunch = function(){
     var lunchItems = $scope.lunchText.split(',');
     $scope.lunchMessage = getLunchMessage(lunchItems);
-    $scope.lunchMessageColor = getLunchMessageColor(lunchItems);
+    $scope.lunchMessageColor = {"color" : getLunchMessageColor(lunchItems)};
+    $scope.lunchBorderColor = {"border-color" : getLunchMessageColor(lunchItems)};
   };
 }
 
@@ -40,11 +42,11 @@ function getLunchMessageColor(lunchItems)
   var pureLunchItems = filterLunchItems(lunchItems);
   if(pureLunchItems == "")
   {
-    return {"color":"red"};
+    return "red";
   }
   else
   {
-    return {"color":"green"};
+    return "green";
   }
 }
 
