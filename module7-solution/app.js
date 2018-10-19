@@ -16,6 +16,10 @@ function ToBuyController ($scope, $filter)
                  { name: "candy", quantity: 2 },
                  { name: "nachos", quantity: 1 }
                 ];
+
+    buy.buyItem = function(){
+        console.log("Bought item")
+    };
 }
 
 AlreadyBoughtController .$inject = ['$scope', '$filter'];
