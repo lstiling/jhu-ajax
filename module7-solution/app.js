@@ -17,8 +17,8 @@ function ToBuyController ($scope, $filter)
                  { name: "nachos", quantity: 1 }
                 ];
 
-    buy.buyItem = function(){
-        console.log("Bought item")
+    buy.buyItem = function(index){
+        console.log("Bought item " + $scope.buy.items[index].name)
     };
 }
 
