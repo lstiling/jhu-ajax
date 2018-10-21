@@ -4,7 +4,14 @@
 angular.module('ShoppingListCheckOff', [])
 .controller('ToBuyController', ToBuyController)
 .controller('AlreadyBoughtController', AlreadyBoughtController)
-.service('ShoppingListCheckOffService', ShoppingListCheckOffService);
+.service('ShoppingListCheckOffService', ShoppingListCheckOffService)
+.filter('totalPriceFilter', function(){
+    return function(item)
+    {
+        var total =  item.quantity *  item.pricePerItem;
+        return "$$$" + total;
+    }
+});
 
 ToBuyController .$inject = ['$scope', '$filter', 'ShoppingListCheckOffService'];
 function ToBuyController ($scope, $filter, ShoppingListCheckOffService)
@@ -28,11 +35,11 @@ function ShoppingListCheckOffService()
 {
     var service = this;
 
-    var buyItems = [{ name: "cookies", quantity: 10 },
-                        { name: "chips", quantity: 5 },
-                        { name: "pizza", quantity: 7 },
-                        { name: "candy", quantity: 2 },
-                        { name: "nachos", quantity: 1 }
+    var buyItems = [{ name: "cookies", quantity: 10, pricePerItem: 4.00 },
+                        { name: "chips", quantity: 5, pricePerItem: 2.00 },
+                        { name: "pizza", quantity: 7, pricePerItem: 9.50 },
+                        { name: "candy", quantity: 2, pricePerItem: 1.50 },
+                        { name: "nachos", quantity: 1, pricePerItem: 7.25 }
                     ];
 
     var boughtItems = [];
