@@ -1,0 +1,9 @@
+<br>
+<br>
+<br>
+<table>
+    <tr ng-repeat="item in ctrl.found">
+        <td><li>({{item.short_name}}) {{item.name}}</li></td>
+        <td><button ng-click="ctrl.onRemove({index : $index})">Don't want this!</button></td>
+    </tr>
+</table>
