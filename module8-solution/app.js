@@ -37,11 +37,11 @@ function NarrowItDownController ($scope, $filter, MenuSearchService)
     ctrl.searchTerm = "";
     ctrl.found = [];
 
-    ctrl.searchMenuItems = function (searchTerm) {
-        var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
+    ctrl.searchMenuItems = function () {
+        var promise = MenuSearchService.getMatchedMenuItems(ctrl.searchTerm);
         promise.then(function (response) {
 
-            ctrl.found = response.data.menu_items;
+            ctrl.found = response;
         })
         .catch(function (error) {
             console.log(error);
@@ -54,16 +54,28 @@ function MenuSearchService($http, ApiBasePath)
 {
     var service = this;
 
-    service.getMatchedMenuItems = function()
+    service.getMatchedMenuItems = function(searchTerm)
     {
-        var response = $http({
+        return $http({
             method: "GET",
             url: (ApiBasePath + "/menu_items.json"),
-          });
-      
-        return response;
+          }
+        ).then(function (result) {
+            // process result and only keep items that match
+            var foundItems = [];
 
-        //TODO - found items list for ones that match search term
+            for(var i = 0; i < result.data.menu_items.length; i++)
+            {
+                var item = result.data.menu_items[i];
+                var description = item.description;
+                if (description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
+                    foundItems.push(item);
+                }
+            }
+            
+            // return processed items
+            return foundItems;
+        });
     }
 }
 
