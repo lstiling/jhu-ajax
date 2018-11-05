@@ -12,7 +12,8 @@ function FoundItemsDirective(){
         templateUrl: 'foundItems.html',
         scope: {
           found: '<',
-          onRemove: '&'
+          onRemove: '&',
+          nothingFound: '<'
         },
         controller: FoundItemsDirectiveController,
         controllerAs: 'ctrl',
@@ -24,9 +25,12 @@ function FoundItemsDirective(){
 
 function FoundItemsDirectiveController() {
     var ctrl = this;
-  
+
     ctrl.onRemove = function (index) {
         ctrl.found.splice(index.index, 1);
+
+        // if user removed the last item then display "Nothing Found!"
+        ctrl.nothingFound = ctrl.found.length == 0;
     };
   };
 
@@ -36,16 +40,28 @@ function NarrowItDownController ($scope, $filter, MenuSearchService)
     var ctrl = this;
     ctrl.searchTerm = "";
     ctrl.found = [];
+    ctrl.nothingFound = ctrl.found.length == 0;
 
     ctrl.searchMenuItems = function () {
-        var promise = MenuSearchService.getMatchedMenuItems(ctrl.searchTerm);
-        promise.then(function (response) {
+        // if search word is empty don't bother doing http request
+        if(ctrl.searchTerm == "")
+        {
+            ctrl.nothingFound = true;
+        }
+        else
+        {
+            var promise = MenuSearchService.getMatchedMenuItems(ctrl.searchTerm);
+            promise.then(function (response) {
 
-            ctrl.found = response;
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
+                ctrl.found = response;
+
+                // check if there are responses that matched
+                ctrl.nothingFound = ctrl.found.length == 0;
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        }
     };
 }
 
@@ -63,7 +79,7 @@ function MenuSearchService($http, ApiBasePath)
         ).then(function (result) {
             // process result and only keep items that match
             var foundItems = [];
-
+            
             for(var i = 0; i < result.data.menu_items.length; i++)
             {
                 var item = result.data.menu_items[i];
