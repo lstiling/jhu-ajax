@@ -13,7 +13,7 @@ function FoundItemsDirective(){
         scope: {
           found: '<',
           onRemove: '&',
-          nothingFound: '<'
+          nothingFound: '='
         },
         controller: FoundItemsDirectiveController,
         controllerAs: 'ctrl',
@@ -38,30 +38,22 @@ NarrowItDownController.$inject = ['$scope', '$filter', 'MenuSearchService'];
 function NarrowItDownController ($scope, $filter, MenuSearchService)
 {
     var ctrl = this;
-    ctrl.searchTerm = "";
     ctrl.found = [];
-    ctrl.nothingFound = ctrl.found.length == 0;
+    ctrl.searchTerm = ""
+    ctrl.nothingFound = true;
 
     ctrl.searchMenuItems = function () {
-        // if search word is empty don't bother doing http request
-        if(ctrl.searchTerm == "")
-        {
-            ctrl.nothingFound = true;
-        }
-        else
-        {
-            var promise = MenuSearchService.getMatchedMenuItems(ctrl.searchTerm);
-            promise.then(function (response) {
+        var promise = MenuSearchService.getMatchedMenuItems(ctrl.searchTerm);
+        promise.then(function (response) {
+            
+            ctrl.found = response;
 
-                ctrl.found = response;
-
-                // check if there are responses that matched
-                ctrl.nothingFound = ctrl.found.length == 0;
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-        }
+            // check if there are responses that matched
+            ctrl.nothingFound = ctrl.found.length == 0;
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
     };
 }
 
@@ -75,23 +67,26 @@ function MenuSearchService($http, ApiBasePath)
         return $http({
             method: "GET",
             url: (ApiBasePath + "/menu_items.json"),
-          }
+            }
         ).then(function (result) {
             // process result and only keep items that match
             var foundItems = [];
             
-            for(var i = 0; i < result.data.menu_items.length; i++)
+            if(searchTerm !== "")
             {
-                var item = result.data.menu_items[i];
-                var description = item.description;
-                if (description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
-                    foundItems.push(item);
+                for(var i = 0; i < result.data.menu_items.length; i++)
+                {
+                    var item = result.data.menu_items[i];
+                    var description = item.description;
+                    if (description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
+                        foundItems.push(item);
+                    }
                 }
             }
             
             // return processed items
             return foundItems;
-        });
+        });  
     }
 }
 
