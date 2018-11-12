@@ -1,14 +1,28 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title></title>
+    <title>Narrow Down Your Menu Choice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
 
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
   </head>
-<body>
+  <body ng-app="MenuApp">
+    <div class="container">
+      <h1>Welcome to our Resturant!</h1>
+      <a ui-sref="categories" ui-sref-active="activeTab">Menu Categories</a>
+    </div>
 
-</body>
+    <ui-view></ui-view>
+
+    <!-- Libraries -->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+
+    <!-- Modules -->
+    <script src="menu.module.js"></script>
+    <script src="data.module.js"></script>
+    <script src="menudata.service.js"></script>
+    <script src="categories.component.js"></script>
+    <script src="routes.js"></script>
+  </body>
 </html>
