@@ -1,0 +1,10 @@
+<a style="padding: 10px" ui-sref="home">Home</a> |
+<a style="padding: 10px" ui-sref="categories">Menu Categories</a>
+<p style="padding: 10px">Item:</p>
+<table style="padding: 10px">
+    <tr ng-repeat="item in itemsCtrl.items">
+        <td  style="padding: 0 0 10px 15px;"><li>{{ item.name }}</li></td>
+        <td  style="padding: 0 0 10px 15px;">{{ item.description }}</td>
+        <td  style="padding: 0 0 10px 15px;">${{ item.price_large }} </td>
+    </tr>
+</table>

@@ -1,6 +1,7 @@
-<p>Categories page</p>
+<a style="padding: 10px" ui-sref="home">Home</a>
+<p style="padding: 10px">Menu Categories:</p>
 <ul>
     <li ng-repeat="category in catCtrl.categories">
-        <a>({{category.short_name}}) {{category.name}}</a>
+        <a ui-sref="items({id : category.short_name})">{{category.name}}</a>
     </li>
 </ul>
