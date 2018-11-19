@@ -12,12 +12,12 @@
     $stateProvider
         .state('home', {
             url: '/',
-            templateUrl: 'templates/home.template.html'
+            templateUrl: 'src/templates/home.template.html'
         })
 
         .state('categories', {
             url: '/categories',
-            templateUrl:  'templates/categories.template.html',
+            templateUrl:  'src/templates/categories.template.html',
             controller: 'CategoriesController as catCtrl',
             resolve: {
                 categories: ['MenuDataService', function(MenuDataService){
@@ -28,7 +28,7 @@
 
         .state('items', {
             url: '/items/{id}',
-            templateUrl:  'templates/items.template.html',
+            templateUrl:  'src/templates/items.template.html',
             controller: 'ItemsController as itemsCtrl',
             resolve: {
                 items: ['$stateParams', 'MenuDataService', function($stateParams, MenuDataService){
