@@ -1,1 +1,79 @@
-<h1>Sign Up:</h1>
+<div style="display: block;
+text-align: center;">
+<h2>Sign Up:</h2>
+<br>
+
+<form name=signupForm>
+
+    First name:
+    <input type="text" name="firstname" placeholder="Enter first name" 
+           ng-model="signup.user.firstname" required minlength="1"
+           ng-maxlength="20" style="color: black"></input>
+    <br>
+    <span style="color: red"
+        ng-if="(signupForm.firstname.$error.minlength || signupForm.firstname.$error.required) && signupForm.firstname.$touched">
+        First Name must be at least 1 character long.
+    </span>
+    <span style="color: red" ng-if="signupForm.firstname.$error.maxlength && signupForm.firstname.$touched">
+        First Name must not be longer than 20 characters.
+    </span>
+
+    <br>
+    <br>
+    Last name:
+    <input type="text" name="lastname" placeholder="Enter last name" 
+           ng-model="signup.user.lastname" required minlength="1"
+           ng-maxlength="20" style="color: black"></input>
+    <br>
+    <span style="color: red"
+        ng-if="(signupForm.lastname.$error.minlength || signupForm.lastname.$error.required) && signupForm.lastname.$touched">
+        Last Name must be at least 1 character long.
+    </span>
+    <span style="color: red" ng-if="signupForm.lastname.$error.maxlength && signupForm.lastname.$touched">
+        Last Name must not be longer than 20 characters.
+    </span>
+
+    <br>
+    <br>
+    Email Address:
+    <input type="email" name="email" placeholder="Email handle@domain" 
+           ng-model="signup.user.email" required style="color: black"></input>
+    <br>
+    <span style="color: red" ng-if="signup.email.$invalid && signup.email.$touched">
+        Must be a valid email address: handle@domain format
+    </span>
+
+    <br>
+    <br>
+    Phone Number:
+    <input type="text" name="phone" placeholder="Phone ###-###-####" 
+           ng-model="signup.user.phone" pattern="(\d{3})-(\d{3})-(\d{4})" required style="color: black"></input>
+    <br>
+    <span style="color: red" ng-if="signup.phone.$invalid && signup.phone.$touched">
+        Phone must be in the format ###-###-####.
+    </span>
+
+    <br>
+    <br>
+    Favorite Dish:
+    <input type="text" name="favoriteDish" placeholder="Enter menu number" 
+           ng-model="signup.user.favoriteDish" required minlength="1"
+           ng-maxlength="6" style="color: black"></input>
+    <br>
+    <span style="color: red"
+        ng-if="(signupForm.favoriteDish.$error.minlength || signupForm.favoriteDish.$error.required) && signupForm.favoriteDish.$touched">
+        Favorite Dish short name must be at least 1 character long.
+    </span>
+    <span style="color: red" ng-if="signupForm.favoriteDish.$error.maxlength && signupForm.favoriteDish.$touched">
+        Favorite Dish short name must not be longer than 6 characters.
+    </span>
+
+    <br>
+    <br>
+    <button style="color: black"
+        type="button" class="btn"
+        ng-disabled="signup.$invalid"
+        ng-click="signup.submit()">Submit
+    </button>
+</form>
+</div>

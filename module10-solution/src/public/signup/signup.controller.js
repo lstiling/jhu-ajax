@@ -4,9 +4,13 @@
 angular.module('public')
 .controller('SignUpController', SignUpController);
 
-SignUpController.$inject = [''];
+
 function SignUpController() {
-  var $ctrl = this;
+  var signup = this;
+
+  signup.submit = function () {
+    signup.completed = true;
+  };
 }
 
 })();
