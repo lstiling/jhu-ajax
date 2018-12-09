@@ -3,7 +3,7 @@ text-align: center;">
 <h2>Sign Up:</h2>
 <br>
 
-<form name=signupForm>
+<form name="signupForm" novalidate>
 
     First name:
     <input type="text" name="firstname" placeholder="Enter first name" 
@@ -39,7 +39,7 @@ text-align: center;">
     <input type="email" name="email" placeholder="Email handle@domain" 
            ng-model="signup.user.email" required style="color: black"></input>
     <br>
-    <span style="color: red" ng-if="signup.email.$invalid && signup.email.$touched">
+    <span style="color: red" ng-if="signupForm.email.$invalid && signupForm.email.$touched">
         Must be a valid email address: handle@domain format
     </span>
 
@@ -49,7 +49,7 @@ text-align: center;">
     <input type="text" name="phone" placeholder="Phone ###-###-####" 
            ng-model="signup.user.phone" pattern="(\d{3})-(\d{3})-(\d{4})" required style="color: black"></input>
     <br>
-    <span style="color: red" ng-if="signup.phone.$invalid && signup.phone.$touched">
+    <span style="color: red" ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
         Phone must be in the format ###-###-####.
     </span>
 
@@ -72,7 +72,7 @@ text-align: center;">
     <br>
     <button style="color: black"
         type="button" class="btn"
-        ng-disabled="signup.$invalid"
+        ng-disabled="signupForm.$invalid"
         ng-click="signup.submit()">Submit
     </button>
 </form>
