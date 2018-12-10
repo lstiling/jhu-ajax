@@ -4,12 +4,26 @@
 angular.module('public')
 .controller('SignUpController', SignUpController);
 
-
-function SignUpController() {
+SignUpController.$inject = ['MenuService'];
+function SignUpController(MenuService) {
   var signup = this;
+  signup.favoriteDish = "";
+  signup.favoriteDishExists = true;
 
   signup.submit = function () {
-    signup.completed = true;
+    if(signup.favoriteDish)
+    {
+      var promise = MenuService.getMenuItem(signup.favoriteDish);
+      promise.then(function (response) {
+            
+          signup.favoriteDishExists = response;
+          console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+        signup.favoriteDishExists= false;
+      })
+    }
   };
 }
 

@@ -7,7 +7,7 @@ text-align: center;">
 
     First name:
     <input type="text" name="firstname" placeholder="Enter first name" 
-           ng-model="signup.user.firstname" required minlength="1"
+           ng-model="signup.firstname" required minlength="1"
            ng-maxlength="20" style="color: black"></input>
     <br>
     <span style="color: red"
@@ -22,7 +22,7 @@ text-align: center;">
     <br>
     Last name:
     <input type="text" name="lastname" placeholder="Enter last name" 
-           ng-model="signup.user.lastname" required minlength="1"
+           ng-model="signup.lastname" required minlength="1"
            ng-maxlength="20" style="color: black"></input>
     <br>
     <span style="color: red"
@@ -37,7 +37,7 @@ text-align: center;">
     <br>
     Email Address:
     <input type="email" name="email" placeholder="Email handle@domain" 
-           ng-model="signup.user.email" required style="color: black"></input>
+           ng-model="signup.email" required style="color: black"></input>
     <br>
     <span style="color: red" ng-if="signupForm.email.$invalid && signupForm.email.$touched">
         Must be a valid email address: handle@domain format
@@ -47,7 +47,7 @@ text-align: center;">
     <br>
     Phone Number:
     <input type="text" name="phone" placeholder="Phone ###-###-####" 
-           ng-model="signup.user.phone" pattern="(\d{3})-(\d{3})-(\d{4})" required style="color: black"></input>
+           ng-model="signup.phone" pattern="(\d{3})-(\d{3})-(\d{4})" required style="color: black"></input>
     <br>
     <span style="color: red" ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
         Phone must be in the format ###-###-####.
@@ -57,22 +57,18 @@ text-align: center;">
     <br>
     Favorite Dish:
     <input type="text" name="favoriteDish" placeholder="Enter menu number" 
-           ng-model="signup.user.favoriteDish" required minlength="1"
-           ng-maxlength="6" style="color: black"></input>
+           ng-model="signup.favoriteDish" required style="color: black"></input>
     <br>
     <span style="color: red"
-        ng-if="(signupForm.favoriteDish.$error.minlength || signupForm.favoriteDish.$error.required) && signupForm.favoriteDish.$touched">
-        Favorite Dish short name must be at least 1 character long.
-    </span>
-    <span style="color: red" ng-if="signupForm.favoriteDish.$error.maxlength && signupForm.favoriteDish.$touched">
-        Favorite Dish short name must not be longer than 6 characters.
+        ng-if="!signup.favoriteDishExists">
+        No such menu number exists.
     </span>
 
     <br>
     <br>
     <button style="color: black"
         type="button" class="btn"
-        ng-disabled="signupForm.$invalid"
+        ng-disabled="signup.$invalid"
         ng-click="signup.submit()">Submit
     </button>
 </form>
