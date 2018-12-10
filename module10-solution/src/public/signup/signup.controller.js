@@ -10,6 +10,11 @@ function SignUpController(MenuService) {
   signup.favoriteDish = "";
   signup.favoriteDishExists = true;
 
+  signup.firstname = "";
+  signup.lastname = "";
+  signup.email = "";
+  signup.phone = "";
+
   signup.submit = function () {
     if(signup.favoriteDish)
     {
@@ -18,6 +23,8 @@ function SignUpController(MenuService) {
             
           signup.favoriteDishExists = response;
           console.log(response);
+
+          MenuService.saveUserInfo(signup.firstname, signup.lastname, signup.email, signup.phone, signup.favoriteDish);
       })
       .catch(function (error) {
         console.log(error);
