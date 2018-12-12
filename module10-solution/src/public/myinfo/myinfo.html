@@ -1,0 +1,16 @@
+<h2>My Info:</h2>
+
+<span style="color: red"
+    ng-if="!myinfo.signedUp">
+    <p> Not Signed Up Yet.  <a  ui-sref="public.signup">Sign up Here!</a></p>
+</span>
+
+
+<span style="color: white"
+    ng-if="myinfo.signedUp">
+    <h4>{{myinfo.firstname}}</h4>
+    <h4>{{myinfo.lastname}}</h4>
+    <h4>{{myinfo.email}}</h4>
+    <h4>{{myinfo.phone}}</h4>
+    <h4>{{myinfo.dish}}</h4>
+</span>

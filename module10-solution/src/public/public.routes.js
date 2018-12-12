@@ -47,12 +47,11 @@ function routeConfig ($stateProvider) {
       controller: 'SignUpController',
       controllerAs: 'signup'
     })
-
-    .state('public.user', {
-      url: '/user}',
-      templateUrl: 'src/public/myinfo/user.html',
+    .state('public.myinfo', {
+      url: '/myinfo}',
+      templateUrl: 'src/public/myinfo/myinfo.html',
       controller: 'MyInfoController',
-      controllerAs: 'info'
+      controllerAs: 'myinfo'
     });
 }
 })();
