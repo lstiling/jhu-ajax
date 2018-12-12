@@ -15,6 +15,8 @@ function SignUpController(MenuService) {
   signup.email = "";
   signup.phone = "";
 
+  signup.savedSuccessfully = false;
+
   signup.submit = function () {
     if(signup.favoriteDish)
     {
@@ -25,6 +27,7 @@ function SignUpController(MenuService) {
           console.log(response);
 
           MenuService.saveUserInfo(signup.firstname, signup.lastname, signup.email, signup.phone, signup.favoriteDish);
+          signup.savedSuccessfully = true;
       })
       .catch(function (error) {
         console.log(error);

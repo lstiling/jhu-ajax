@@ -71,5 +71,11 @@ text-align: center;">
         ng-disabled="signup.$invalid"
         ng-click="signup.submit()">Submit
     </button>
+
+    <br>
+    <span style="color: green"
+        ng-if="signup.savedSuccessfully">
+        Your information has been saved.
+    </span>
 </form>
 </div>
