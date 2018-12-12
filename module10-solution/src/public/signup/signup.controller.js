@@ -28,6 +28,7 @@ function SignUpController(MenuService) {
 
           MenuService.saveUserInfo(signup.firstname, signup.lastname, signup.email, signup.phone, signup.favoriteDish);
           signup.savedSuccessfully = true;
+
       })
       .catch(function (error) {
         console.log(error);
