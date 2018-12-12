@@ -68,7 +68,7 @@ text-align: center;">
     <br>
     <button style="color: black"
         type="button" class="btn"
-        ng-disabled="signup.$invalid"
+        ng-disabled="signupForm.$invalid || !signup.favoriteDishExists"
         ng-click="signup.submit()">Submit
     </button>
 
