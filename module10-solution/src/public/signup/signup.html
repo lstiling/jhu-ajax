@@ -57,7 +57,7 @@ text-align: center;">
     <br>
     Favorite Dish:
     <input type="text" name="favoriteDish" placeholder="Enter menu number" 
-           ng-model="signup.favoriteDish" required style="color: black"></input>
+           ng-model="signup.favoriteDish" required style="color: black" ng-change="signup.checkDish()"></input>
     <br>
     <span style="color: red"
         ng-if="!signup.favoriteDishExists">

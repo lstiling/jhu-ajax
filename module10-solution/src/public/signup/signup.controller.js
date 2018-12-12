@@ -35,6 +35,22 @@ function SignUpController(MenuService) {
       })
     }
   };
+
+  signup.checkDish = function(){
+    if(signup.favoriteDish)
+    {
+      var promise = MenuService.getMenuItem(signup.favoriteDish);
+      promise.then(function (response) {
+            
+          signup.favoriteDishExists = response;
+          console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+        signup.favoriteDishExists= false;
+      })
+    }
+  };
 }
 
 })();
